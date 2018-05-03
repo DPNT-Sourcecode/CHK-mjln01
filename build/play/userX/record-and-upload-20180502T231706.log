@@ -1,0 +1,16 @@
+23:17:06.984 ERROR [main]          - Exception encountered. Stopping now.
+java.lang.RuntimeException: .private/aws-test-secrets
+	at tdl.s3.credentials.AWSSecretProperties.loadPrivateProperties(AWSSecretProperties.java:80) ~[s3-sync-stream-0.0.12.jar:na]
+	at tdl.s3.credentials.AWSSecretProperties.fromPlainTextFile(AWSSecretProperties.java:33) ~[s3-sync-stream-0.0.12.jar:na]
+	at tdl.record_upload.RecordAndUploadApp.main(RecordAndUploadApp.java:70) ~[record-and-upload-0.0.12.jar:na]
+Caused by: java.nio.file.NoSuchFileException: .private/aws-test-secrets
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:86) ~[na:1.8.0_171]
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102) ~[na:1.8.0_171]
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107) ~[na:1.8.0_171]
+	at sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:214) ~[na:1.8.0_171]
+	at java.nio.file.Files.newByteChannel(Files.java:361) ~[na:1.8.0_171]
+	at java.nio.file.Files.newByteChannel(Files.java:407) ~[na:1.8.0_171]
+	at java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:384) ~[na:1.8.0_171]
+	at java.nio.file.Files.newInputStream(Files.java:152) ~[na:1.8.0_171]
+	at tdl.s3.credentials.AWSSecretProperties.loadPrivateProperties(AWSSecretProperties.java:76) ~[s3-sync-stream-0.0.12.jar:na]
+	... 2 common frames omitted
