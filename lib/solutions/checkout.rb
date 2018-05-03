@@ -12,6 +12,7 @@ class Checkout
         puts "Times: #{quantity / free_offer[1]}"
         (quantity / free_offer[1]).times do
           new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?
+          puts "New Skus: #{new_skus}"
         end
       end      
     end
