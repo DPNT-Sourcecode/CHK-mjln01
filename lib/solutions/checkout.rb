@@ -44,7 +44,15 @@ class Checkout
   private
 
   def get_offers(sku)
-    offers = [['A', 3, 130], ['A', 5, 200], ['B', 2, 45]]
+    offers = [
+      ['A', 3, 130], ['A', 5, 200], 
+      ['B', 2, 45],
+      ['H', 5, 45], ['H', 10, 80],
+      ['K', 2, 150], 
+      ['P', 5, 200],
+      ['Q', 3, 80],
+      ['V', 2, 90], ['V', 3, 130]
+    ]
     offers.select { |item| item[0] == sku }.sort_by{|obj| obj[1]}.reverse
   end
 
