@@ -72,6 +72,8 @@ class Checkout
     prices.select { |item| item[0] == sku }.first
   end
 
-  def 
+  def get_group_offers()
+    
+  end
 
 end
