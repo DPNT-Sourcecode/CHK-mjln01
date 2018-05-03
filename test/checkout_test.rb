@@ -13,7 +13,7 @@ class CheckoutTest < Minitest::Test
     assert_equal Checkout.new.checkout("C"), 20
     assert_equal Checkout.new.checkout("D"), 15
 
-    assert_equal Checkout.new.checkout("E"), -1
+    assert_equal Checkout.new.checkout("E"), 40
     assert_equal Checkout.new.checkout("-"), -1
     assert_equal Checkout.new.checkout("ABCa"), -1
     assert_equal Checkout.new.checkout("AxA"), -1
@@ -31,8 +31,11 @@ class CheckoutTest < Minitest::Test
     assert_equal Checkout.new.checkout("BB"), 45
     assert_equal Checkout.new.checkout("BBB"), 75
     assert_equal Checkout.new.checkout("BBBB"), 90
-
     assert_equal Checkout.new.checkout("BBBBB"), 120
+
+    assert_equal Checkout.new.checkout("E"), 40
+    assert_equal Checkout.new.checkout("EE"), 80
+    assert_equal Checkout.new.checkout("EEB"), 80
 
     
   end

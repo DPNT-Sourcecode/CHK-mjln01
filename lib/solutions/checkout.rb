@@ -45,7 +45,7 @@ class Checkout
   end
 
   def get_price(sku)
-    prices = [['A', 50], ['B', 30], ['C', 20], ['D', 15]]
+    prices = [['A', 50], ['B', 30], ['C', 20], ['D', 15], ['E', 40]]
     prices.select { |item| item[0] == sku }.first
   end
 
