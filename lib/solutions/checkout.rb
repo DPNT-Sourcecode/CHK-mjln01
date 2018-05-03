@@ -26,7 +26,7 @@ class Checkout
     end
 
     ##### Handle for Group Offers  #####
-    skus = new_skus    
+    skus = new_skus
     skus.split(//).uniq.each do |sku|
       group_offers = get_group_offers(sku)
 
@@ -34,8 +34,9 @@ class Checkout
         new_skus_ary = new_skus.split(//).uniq
         group_skus = new_skus_ary & group_offer[0]
 
-        if group_skus.count >= 3
-          
+        if group_skus.count >= group_offer[1]
+          total_price = total_price + group_offer[2]
+
         end
       end
     end
