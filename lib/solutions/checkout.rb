@@ -7,6 +7,7 @@ class Checkout
       quantity = skus.count(sku)
       offer = get_offer(sku)
       price = get_price(sku)
+      return -1 if price.nil?
       if offer.nil?
         total_price = total_price + quantity * price[1]
       else
