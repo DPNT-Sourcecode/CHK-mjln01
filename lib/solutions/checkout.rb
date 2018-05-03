@@ -10,7 +10,7 @@ class Checkout
       free_offers.each do |free_offer|
         quantity = skus.count(free_offer[0])
         (quantity / free_offer[1]) .times do
-          new_skus[new_skus.index_of(free_offer[2])] = ''
+          new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?
         end
       end      
     end
