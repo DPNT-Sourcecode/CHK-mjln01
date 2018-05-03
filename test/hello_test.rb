@@ -7,7 +7,7 @@ Logging.logger.root.appenders = Logging.appenders.stdout
 class HelloTest < Minitest::Test
 
   def test_hello
-    assert_equal Hello.new.hello('John'), "Hello John"
+    assert_match /John/, Hello.new.hello('John')
   end
 
 end
