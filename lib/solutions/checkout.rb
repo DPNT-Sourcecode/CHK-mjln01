@@ -1,10 +1,10 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
 
-  def checkout(skus)    total_price = 0
-    
-    new_skus = skus
+  def checkout(skus)
 
+    total_price = 0    
+    new_skus = skus
     ##### Handle for Free Offers #####
     skus.split(//).uniq.each do |sku|
       free_offers = get_free_offers(sku)
@@ -32,6 +32,9 @@ class Checkout
 
       group_offers.each do |group_offer|
         new_skus_ary = new_skus.split(//).uniq
+        group_skus = new_skus_ary & group_offer[0]
+        
+
       end
     end
     
