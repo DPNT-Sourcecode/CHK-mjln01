@@ -41,7 +41,7 @@ class Checkout
 
   def get_free_offers(sku)
     offers = [['E', 2, 'B']]
-    free_offers.select { |item| item[0] == sku }
+    offers.select { |item| item[0] == sku }
   end
 
   def get_price(sku)
