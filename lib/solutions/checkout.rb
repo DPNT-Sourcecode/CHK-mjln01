@@ -26,12 +26,12 @@ class Checkout
     end
 
     ##### Handle for Group Offers  #####
-    skus = new_skus
+    skus = new_skus    
     skus.split(//).uniq.each do |sku|
       group_offers = get_group_offers(sku)
 
       group_offers.each do |group_offer|
-        
+        new_skus_ary = new_skus.split(//).uniq
       end
     end
     
@@ -57,6 +57,10 @@ class Checkout
 
   private
 
+
+
+
+  ##### From database #####
   def get_offers(sku)
     offers = [
       ['A', 3, 130], ['A', 5, 200], 
