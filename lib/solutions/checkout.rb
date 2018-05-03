@@ -31,20 +31,21 @@ class Checkout
       group_offers = get_group_offers(sku)
 
       group_offers.each do |group_offer|
-        new_skus_ary = new_skus.split(//).uniq
-        group_skus = new_skus_ary & group_offer[0]
+        loop do
+          new_skus_ary = new_skus.split(//).uniq
 
-        if group_skus.count >= group_offer[1]
-          total_price = total_price + group_offer[2]
+          group_skus = new_skus_ary & group_offer[0]        
+          break if group_skus.count < group_offer[1]
+
+          total_price = total_price + group_offer[2]          
           group_offer[1].times do |i|
             new_skus[new_skus.index(group_skus[i])] = ''
           end
         end
       end
     end
-    
 
-
+    #### Handle for Multiple Offer 
     new_skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
       offers = get_offers(sku)
