@@ -6,8 +6,12 @@ Logging.logger.root.appenders = Logging.appenders.stdout
 
 class CheckoutTest < Minitest::Test
 
-  def CHK_R1_003
-    assert_equal Checkout.new.checkout(""), 12    
+  def test_checkout
+    assert_equal Checkout.new.checkout(""), 0
+    assert_equal Checkout.new.checkout("A"), 50
+    assert_equal Checkout.new.checkout("B"), 30
+    
+
   end
 
 end

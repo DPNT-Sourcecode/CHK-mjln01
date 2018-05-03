@@ -3,13 +3,17 @@ class Checkout
 
   def checkout(skus)    
     total_price = 0
-    skus.split(//).unique.each do |squ|
+    skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
       offer = get_offer(sku)
       price = get_price(sku)
-      
-    end    
-
+      if offer.nil?
+        total_price = total_price + quantity * price[1]
+      else
+        total_price = total_price + (quantity / offer[1]) * offer[2] + (quantity % offer[1]) * price[1]
+      end      
+    end
+    total_price
   end
 
   private
