@@ -5,18 +5,15 @@ class Checkout
     total_price = 0
     
     new_skus = skus
-    skus.split(//).uniq do |sku|
-      free_offers = get_free_offers(sku)
+    skus.split(//).uniq.each do |sku|
+      free_offers = get_free_offers(sku)      
       free_offers.each do |free_offer|
-        quantity = skus.count(free_offer[0])
-        # puts "Times: #{quantity / free_offer[1]}"
+        quantity = skus.count(free_offer[0])        
         (quantity / free_offer[1]).times do
-          new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?
-          puts "New Skus: #{new_skus}"
+          new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?          
         end
       end      
-    end
-    puts "====== #{new_skus} ====="
+    end    
     new_skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
       offers = get_offers(sku)
