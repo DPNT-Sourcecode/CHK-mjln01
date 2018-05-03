@@ -37,10 +37,11 @@ class CheckoutTest < Minitest::Test
     # assert_equal Checkout.new.checkout("EEB"), 80
     # assert_equal Checkout.new.checkout("EEEB"), 120
 
-    # assert_equal Checkout.new.checkout("EEEEB"), 160
-    assert_equal Checkout.new.checkout("EEEEBBB"), 190
-    # assert_equal Checkout.new.checkout("EEEEBBBB"), 205
+    ## assert_equal Checkout.new.checkout("EEEEB"), 160
     
+
+    assert_equal Checkout.new.checkout("EEEEBBB"), 90
+    # assert_equal Checkout.new.checkout("EEEEBBBB"), 205    
     # assert_equal Checkout.new.checkout("ABCDEABCDE"), 280
     # assert_equal Checkout.new.checkout("CCADDEEBBA"), 280
     # assert_equal Checkout.new.checkout("AAAAAEEBAAABB"), 455
