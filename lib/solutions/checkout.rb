@@ -19,9 +19,14 @@ class Checkout
 
   private
 
-  def get_offer(sku)
-    offers = [['A', 3, 130], ['B', 2, 45]]
-    offers.select { |item| item[0] == sku }.first
+  def get_offers(sku)
+    offers = [['A', 3, 130], ['A', 5, 200], ['B', 2, 45]]
+    offers.select { |item| item[0] == sku }
+  end
+
+  def get_free_offers(sku)
+    offers = [['E', 2, 'B', 1]]
+    free_offers.select { |item| item[0] == sku }
   end
 
   def get_price(sku)
