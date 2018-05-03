@@ -1,20 +1,28 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
 
-  def checkout(skus)    
-    total_price = 0
+  def checkout(skus)    total_price = 0
     
     new_skus = skus
     skus.split(//).uniq.each do |sku|
-      free_offers = get_free_offers(sku)      
+      free_offers = get_free_offers(sku)
       free_offers.each do |free_offer|
-        quantity = skus.count(free_offer[0])        
-        (quantity / free_offer[1]).times do
-          new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?          
+        quantity = skus.count(free_offer[0])
+        if sku != free_offer[2]
+          (quantity / free_offer[1]).times do
+            new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?
+          end
+        else
+          loop do
+            quantity = quantity - free_offer[1]
+            break if quantity <= 0 
+            quantity = quantity - 1
+            new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?
+          end
         end
-      end      
+      end
     end
-    puts "New Skus: #{new_skus}"
+    
     new_skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
       offers = get_offers(sku)

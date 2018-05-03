@@ -47,6 +47,8 @@ class CheckoutTest < Minitest::Test
     assert_equal Checkout.new.checkout("F"), 10
     assert_equal Checkout.new.checkout("FF"), 20
     assert_equal Checkout.new.checkout("FFF"), 20
+    assert_equal Checkout.new.checkout("FFFF"), 30
+    assert_equal Checkout.new.checkout("FFFFFF"), 40
 
   end
 
