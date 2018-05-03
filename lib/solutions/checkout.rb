@@ -3,9 +3,10 @@ class Checkout
 
   def checkout(skus)
 
-    total_price = 0    
-    new_skus = skus
-    ##### Handle for Free Offers #####
+    total_price = 0
+    
+    ##### Handle for Free Offers #####    
+    new_skus = skus    
     skus.split(//).uniq.each do |sku|
       free_offers = get_free_offers(sku)
       free_offers.each do |free_offer|
@@ -65,9 +66,6 @@ class Checkout
   end
 
   private
-
-
-
 
   ##### From database #####
   def get_offers(sku)
