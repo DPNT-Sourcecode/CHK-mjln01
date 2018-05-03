@@ -57,7 +57,9 @@ class Checkout
   end
 
   def get_free_offers(sku)
-    offers = [['E', 2, 'B'], ['F', 2, 'F']]
+    offers = [
+      ['E', 2, 'B'], ['F', 2, 'F'], ['N', 3, 'M'], ['R', 3, 'Q'], ['U', 3, 'U']
+    ]
     offers.select { |item| item[0] == sku }
   end
 
