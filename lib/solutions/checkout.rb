@@ -72,8 +72,11 @@ class Checkout
     prices.select { |item| item[0] == sku }.first
   end
 
-  def get_group_offers()
-    
+  def get_group_offers(sku)
+    group_offers = [
+        [['S', 'T', 'X', 'Y', 'Z'], 3, 45]
+      ]
+    group_offers.select { |item| item[0].include?(sku) }
   end
 
 end
