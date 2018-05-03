@@ -9,7 +9,7 @@ class Checkout
       free_offers = get_free_offers(sku)
       free_offers.each do |free_offer|
         quantity = skus.count(free_offer[0])
-        puts "Times: #{quantity / free_offer[1]}"
+        # puts "Times: #{quantity / free_offer[1]}"
         (quantity / free_offer[1]).times do
           new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?
           puts "New Skus: #{new_skus}"
