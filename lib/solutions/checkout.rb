@@ -3,7 +3,18 @@ class Checkout
 
   def checkout(skus)    
     total_price = 0
-    skus.split(//).uniq.each do |sku|
+    
+    new_skus = skus
+    skus.split(//).uniq do |sku|
+      free_offers = get_free_offers(sku)
+      free_offers.each do |free_offer|
+        quantity = skus.count(free_offer[0])
+        (quantity / free_offer[1]) .times do
+          new_skus[new_skus.index_of(free_offer[2])] = ''
+        end
+      end      
+    end
+    new_skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
       offers = get_offer(sku)
       price = get_price(sku)
@@ -26,7 +37,7 @@ class Checkout
   end
 
   def get_free_offers(sku)
-    offers = [['E', 2, 'B', 1]]
+    offers = [['E', 2, 'B']]
     free_offers.select { |item| item[0] == sku }
   end
 
