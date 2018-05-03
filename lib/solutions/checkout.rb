@@ -13,7 +13,8 @@ class Checkout
           new_skus[new_skus.index(free_offer[2])] = '' unless new_skus.index(free_offer[2]).nil?          
         end
       end      
-    end    
+    end
+    puts "New Skus: #{new_skus}"
     new_skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
       offers = get_offers(sku)
