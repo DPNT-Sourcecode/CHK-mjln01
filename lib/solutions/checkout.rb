@@ -4,6 +4,8 @@ class Checkout
   def checkout(skus)    total_price = 0
     
     new_skus = skus
+
+    ##### Handle for Free Offers #####
     skus.split(//).uniq.each do |sku|
       free_offers = get_free_offers(sku)
       free_offers.each do |free_offer|
@@ -22,7 +24,19 @@ class Checkout
         end
       end
     end
+
+    ##### Handle for Group Offers  #####
+    skus = new_skus
+    skus.split(//).uniq.each do |sku|
+      group_offers = get_group_offers(sku)
+
+      group_offers.each do |group_offer|
+        
+      end
+    end
     
+
+
     new_skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
       offers = get_offers(sku)
