@@ -4,7 +4,7 @@ class Checkout
   def checkout(skus)
 
     total_price = 0
-    
+
     ##### Handle for Free Offers #####    
     new_skus = skus    
     skus.split(//).uniq.each do |sku|
@@ -73,7 +73,7 @@ class Checkout
       ['A', 3, 130], ['A', 5, 200], 
       ['B', 2, 45],
       ['H', 5, 45], ['H', 10, 80],
-      ['K', 2, 150], 
+      ['K', 2, 120], 
       ['P', 5, 200],
       ['Q', 3, 80],
       ['V', 2, 90], ['V', 3, 130]
