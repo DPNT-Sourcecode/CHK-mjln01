@@ -16,15 +16,18 @@ class Checkout
     end
     new_skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
-      offers = get_offer(sku)
+      offers = get_offers(sku)
       price = get_price(sku)
       return -1 if price.nil?
       if offers.empty?
         total_price = total_price + quantity * price[1]
       else
-
-        total_price = total_price + (quantity / offer[1]) * offer[2] + (quantity % offer[1]) * price[1]
-      end      
+        offers.each do |offer|
+          total_price = total_price + (quantity / offer[1]) * offer[2]
+          quantity = quantity % offer[1]
+        end
+        total_price = total_price + quantity * price[1]
+      end
     end
     total_price
   end
