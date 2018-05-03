@@ -35,8 +35,7 @@ class Checkout
         loop do
           new_skus_ary = new_skus.split(//)
 
-          group_skus = new_skus_ary.select{|item| group_offer[0].include?(item)}
-          puts "Group Skus: #{group_skus}"
+          group_skus = new_skus_ary.select{|item| group_offer[0].include?(item)}          
           break if group_skus.count < group_offer[1]
 
           total_price = total_price + group_offer[2]          
