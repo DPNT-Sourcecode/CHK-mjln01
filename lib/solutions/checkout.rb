@@ -36,7 +36,9 @@ class Checkout
 
         if group_skus.count >= group_offer[1]
           total_price = total_price + group_offer[2]
-
+          group_offer[1].times do |i|
+            new_skus[new_skus.index(group_skus[i])] = ''
+          end
         end
       end
     end
