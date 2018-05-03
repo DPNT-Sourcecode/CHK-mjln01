@@ -72,4 +72,6 @@ class Checkout
     prices.select { |item| item[0] == sku }.first
   end
 
+  def 
+
 end
