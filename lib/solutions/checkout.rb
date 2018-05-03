@@ -33,8 +33,10 @@ class Checkout
       group_offers.each do |group_offer|
         new_skus_ary = new_skus.split(//).uniq
         group_skus = new_skus_ary & group_offer[0]
-        
 
+        if group_skus.count >= 3
+          
+        end
       end
     end
     
