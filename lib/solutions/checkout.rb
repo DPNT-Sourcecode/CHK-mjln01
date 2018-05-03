@@ -14,6 +14,7 @@ class Checkout
         end
       end      
     end
+    puts "====== #{new_skus} ====="
     new_skus.split(//).uniq.each do |sku|
       quantity = skus.count(sku)
       offers = get_offers(sku)
