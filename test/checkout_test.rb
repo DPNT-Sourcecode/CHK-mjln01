@@ -22,6 +22,15 @@ class CheckoutTest < Minitest::Test
     assert_equal Checkout.new.checkout("AA"), 100
     assert_equal Checkout.new.checkout("AAA"), 130
     assert_equal Checkout.new.checkout("AAAA"), 180
+    assert_equal Checkout.new.checkout("AAAAA"), 230
+
+    assert_equal Checkout.new.checkout("AAAAAA"), 260
+
+    assert_equal Checkout.new.checkout("BB"), 45
+    assert_equal Checkout.new.checkout("BBB"), 75
+    assert_equal Checkout.new.checkout("BBBB"), 90
+
+    assert_equal Checkout.new.checkout("ABCDABCD"), 215
 
 
 
