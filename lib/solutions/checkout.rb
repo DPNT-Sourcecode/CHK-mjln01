@@ -2,11 +2,8 @@
 class Checkout
 
   def checkout(skus)
-    ## To make sure Not sure input format
-    puts skus[0]
-    puts skus[1]
-    puts skus[2]
-    3
+    items = [['A', 50], ['B',30], ['C', 20], ['D', 15]]
+    offers = [['3A', 130], ['2B', 45]]
   end
 
 end
